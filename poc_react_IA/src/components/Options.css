@@ -1,0 +1,20 @@
+.option{
+    background-color:#262324;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.4s;
+    color: #f9fad2;
+}
+
+.option:hover{
+    background-color: black;
+}
+
+.selected{
+    background-color: #b3dbc8;
+    color: #262324;
+    font-weight: bold;
+}
