@@ -2,11 +2,13 @@ import React from 'react'
 import { useContext } from 'react'
 import { QuizContext } from '../context/quiz'
 import img from '../img/macbook_guy.png'
+import { useEffect, useState } from "react";
 
 import './StartQuiz.css'
 
 const StartQuiz = () => {
     const [quizState, dispatch] = useContext(QuizContext)
+
     return (
         <div>
             <img className='macbook_guy' src={img}></img>

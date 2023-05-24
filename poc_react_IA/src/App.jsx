@@ -16,15 +16,15 @@ import { Outlet } from "react-router-dom";
 function App() {
 
   const [quizState, dispatch] = useContext(QuizContext)
+  const [token, setToken] = useState([])
 
-  return (
-    
-    <div className="App">
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-    </div>
-  )
-}
+    return (
+      <div className="App">
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+      </div>
+    )
+  }
 
 
 export default App

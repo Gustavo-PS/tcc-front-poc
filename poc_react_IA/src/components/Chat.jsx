@@ -37,7 +37,7 @@ const Chat = () => {
         myHeaders.append("access-token", token.token);
 
         var raw = JSON.stringify({
-            "prompt": prompt
+            "perfil": prompt
         });
 
         fetch("https://app-api-tcc.azurewebsites.net/api/v1/chat", {
@@ -47,7 +47,7 @@ const Chat = () => {
             redirect: 'follow'
         })
             .then(response => response.json())
-            .then(data => setAnswer(data))
+            .then(data => setAnswer(JSON.stringify(data.chatResponse)))
             .catch(error => console.log('error', error));
     }
 
@@ -64,7 +64,7 @@ const Chat = () => {
                 <h2>Pergunte para a nossa IA!</h2>
                 <input name='inputPrompt' value={prompt} onChange={e => setPrompt(e.target.value)}></input>
                 <button name='submit' onClick={submitQuestion}>Submit</button>
-                <a>{answer.chatResponse}</a>
+                <a>{answer}</a>
             </div>
         )
     }

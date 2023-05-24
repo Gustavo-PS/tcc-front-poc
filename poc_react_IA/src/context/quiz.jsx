@@ -9,10 +9,20 @@ const initialState = {
     currentQuestion: 0,
     profile: "",
     answerSelected: false,
+    token: "",
+    perfil: "",
 }
 
 const quizReducer = (state, action) => {
     switch (action.type) {
+        case "SET_TOKEN":
+            const token = action.payload.token
+            console.log(token)
+
+            return {
+                ...state,
+                token: token,
+            }
         case "CHANGE_STATE":
             return {
                 ...state,
@@ -36,7 +46,15 @@ const quizReducer = (state, action) => {
             }
 
         case "NEW_GAME":
-            return initialState
+            return {
+                gameStage: STAGES[0],
+                questions,
+                currentQuestion: 0,
+                profile: state.profile,
+                answerSelected: false,
+                token: state.token,
+                perfil: state.perfil,
+            }
 
         case "CHECK_ANSWER":
             const option = action.payload.option;
@@ -50,6 +68,14 @@ const quizReducer = (state, action) => {
                 ...state,
                 answerSelected: option,
                 profile: state.profile + index
+            }
+
+        case "GET_PRODUCTS":
+            const perfil = action.payload.perfil
+
+            return {
+                ...state,
+                perfil: perfil
             }
 
         default:

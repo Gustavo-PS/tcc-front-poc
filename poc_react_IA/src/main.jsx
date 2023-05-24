@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import { QuizProvider } from './context/quiz.jsx'
 import MenuQuiz from './components/MenuQuiz.jsx'
 import Home from './components/Home.jsx'
+import Products from './components/Products.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "quiz",
         element: <MenuQuiz></MenuQuiz>
+      },
+      {
+        path: "products",
+        element: <Products></Products>
       },
 
     ]
