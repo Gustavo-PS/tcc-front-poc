@@ -1,7 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import { QuizContext } from '../context/quiz'
-import img from '../img/macbook_guy.png'
+import img from '../img/phone_idea.png'
 import { useEffect, useState } from "react";
 
 import './StartQuiz.css'

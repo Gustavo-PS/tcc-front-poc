@@ -8,9 +8,8 @@ body,
 html{
     min-height: 100vh;
     height: 100%;
-    background-color: #fa9f43;
-    color: #f9fad2;
-    overflow: hidden;
+    background-color: #bacca4;
+    color: #2b2726;
 }
 
 img{
@@ -31,12 +30,13 @@ button{
     font-size: 1.2rem;
     cursor: pointer;
     padding: .8rem 1.5rem;
-    background-color: #262324;
+    background-color: #2b2726;
     border-radius: .8rem;
     border: none;
+    transition: 0.4s;
     color: #f9fad2;
 }
 
 button:hover{
-    background-color: black;
+    background-color: #7dad93;
 }

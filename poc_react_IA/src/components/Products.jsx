@@ -1,5 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { QuizContext } from '../context/quiz'
+import Loading from './Loading'
+
+import "./Products.css"
 
 const Products = () => {
     const [quizState, dispatch] = useContext(QuizContext)
@@ -39,16 +42,19 @@ const Products = () => {
     if (productList.length == 0) {
         return (
             <div className='Chat'>
-                <h2>loading...</h2>
+                <Loading></Loading>
             </div>
         )
     } else {
         return (
-            <div>
+            <div className='productList'>
                 {productList.map((product, key) => (
-                    <div>
-                        <a>{product.Marca}</a>
-                        <h2>{product.Nome}</h2>       
+                    <div className='product'>
+                        <div className='info'>
+                            <a>{product.Marca}</a>
+                            <h3>{product.Nome}</h3>
+                        </div>
+                        <h1>GO!</h1>
                     </div>
                 ))}
             </div>

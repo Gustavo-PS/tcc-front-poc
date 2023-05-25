@@ -1,5 +1,5 @@
 .option{
-    background-color:#262324;
+    background-color: #0a516d;
     border-radius: .5rem;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -10,11 +10,13 @@
 }
 
 .option:hover{
-    background-color: black;
+    background-color: #7dad93;
+    color: #2b2726;
+    font-weight: bold;
 }
 
 .selected{
-    background-color: #b3dbc8;
-    color: #262324;
+    background-color: #7dad93;
+    color: #2b2726;
     font-weight: bold;
 }

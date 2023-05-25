@@ -6,6 +6,6 @@
   justify-content: center;
 }
 
-.App a, input, button{
+.App input, button{
   margin: 2rem;
 }

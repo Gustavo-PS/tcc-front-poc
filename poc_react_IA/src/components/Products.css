@@ -1,0 +1,22 @@
+.productList{
+    width: 95%;
+}
+
+.product {
+    padding: 1rem;
+
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info{
+    text-align: left;
+}
+
+
+
+h3 {
+    margin: 0 rem;
+}

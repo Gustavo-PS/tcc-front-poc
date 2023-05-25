@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './Chat.css'
+import Loading from './Loading'
 
 const Chat = () => {
 
@@ -51,10 +52,10 @@ const Chat = () => {
             .catch(error => console.log('error', error));
     }
 
-    if (token.token == null) {
+    if (token.token != null) {
         return (
             <div className='Chat'>
-                <h2>loading...</h2>
+                <Loading></Loading>
             </div>
         )
     } else {
