@@ -3,6 +3,7 @@ import { QuizContext } from '../context/quiz'
 import Loading from './Loading'
 
 import "./Products.css"
+import { Link } from 'react-router-dom'
 
 const Products = () => {
     const [quizState, dispatch] = useContext(QuizContext)
@@ -49,13 +50,15 @@ const Products = () => {
         return (
             <div className='productList'>
                 {productList.map((product, key) => (
-                    <div className='product'>
-                        <div className='info'>
-                            <a>{product.Marca}</a>
-                            <h3>{product.Nome}</h3>
+                    <Link to={`/product/info/${JSON.stringify(product)}`} >
+                        <div className='product'>
+                            <div className='info'>
+                                <a>{product.Marca}</a>
+                                <h3>{product.Nome}</h3>
+                            </div>
+                            <a>Detalhes</a>
                         </div>
-                        <h1>GO!</h1>
-                    </div>
+                    </Link>
                 ))}
             </div>
 

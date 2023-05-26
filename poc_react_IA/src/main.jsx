@@ -10,6 +10,7 @@ import { QuizProvider } from './context/quiz.jsx'
 import MenuQuiz from './components/MenuQuiz.jsx'
 import Home from './components/Home.jsx'
 import Products from './components/Products.jsx'
+import ProductInfo from './components/ProductInfo.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products></Products>
+      },
+      {
+        path: "product/info/:id",
+        element: <ProductInfo></ProductInfo>
       },
 
     ]

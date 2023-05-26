@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { QuizContext } from '../context/quiz'
 import { Link } from 'react-router-dom'
+import Loading from './Loading'
 import "./Final.css"
 
 const Final = () => {
@@ -47,18 +48,16 @@ const Final = () => {
 
   if (answer.perfil == null) {
     return (
-      <div className='Chat'>
-        <h2>loading...</h2>
-      </div>
+      <Loading></Loading>
     )
   } else {
     return (
-      <div>
-        <h2>Fim</h2>
-        <h2>Com base nas respotas, vimos que seu perfil é de um usuário {answer.perfil}</h2>
-        <h2>Separamos aqui alguns modelos que melhor te atenderão:</h2>
+      <div className='profile'>
+        <h3>Com base nas respotas, vimos que seu perfil é de um usuário:</h3>
+        <h2>{answer.perfil}</h2>
+        <a>Separamos aqui alguns modelos que melhor te atenderão:</a>
         <Link to='/products'><button onClick={() => getProducts(answer.perfil)}>Vamos lá!</button></Link>
-        <h2>Ou refaça o quiz:</h2>        
+        <h3>Ou refaça o quiz:</h3>        
         <button onClick={() => dispatch({ type: "NEW_GAME" })}>Refazer</button>
       </div>
     )

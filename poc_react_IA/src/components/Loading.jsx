@@ -6,7 +6,7 @@ import "./Loading.css"
 const Loading = () => {
     return (
         <div className='loading'>
-            <ReactLoading type="bubbles" color="#0a516d"
+            <ReactLoading type="bubbles" color="#01373E"
                 height={150} width={100} />
         </div>
     )

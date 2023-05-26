@@ -8,8 +8,8 @@ body,
 html{
     min-height: 100vh;
     height: 100%;
-    background-color: #bacca4;
-    color: #2b2726;
+    background-color: #ECEAE3;
+    color: #111111;
 }
 
 img{
@@ -19,7 +19,7 @@ img{
 input{
     padding: .5rem;
     border-radius: .3rem;
-    border-color: #f9fad2;
+    border-color: #ECEAE3;
     border-style: solid;
     background-color: transparent;
     width: 70%;
@@ -30,13 +30,13 @@ button{
     font-size: 1.2rem;
     cursor: pointer;
     padding: .8rem 1.5rem;
-    background-color: #2b2726;
+    background-color: #01373E;
     border-radius: .8rem;
     border: none;
     transition: 0.4s;
-    color: #f9fad2;
+    color: #eceae3;
 }
 
 button:hover{
-    background-color: #7dad93;
+    background-color: #5DE1FF;
 }

@@ -2,7 +2,7 @@
   height: 60px;
   width: 100%;
   padding: 0.5rem 0rem;
-  background-color: #2b2726;
+  background-color: #01373E;
 }
 
 ul {
@@ -22,6 +22,6 @@ li a {
   display: block;
   text-align: center;
   width: 100%;
-  color: #bacca4;
+  color: #ECEAE3;
   font-weight: bold;
 }

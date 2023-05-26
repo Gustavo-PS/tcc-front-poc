@@ -1,22 +1,22 @@
 .option{
-    background-color: #0a516d;
+    background-color: #111111;
     border-radius: .5rem;
     padding: 1rem;
     margin-bottom: 1rem;
     cursor: pointer;
     opacity: 0.9;
-    transition: 0.4s;
-    color: #f9fad2;
+    transition: 0.4s;  
+    color: #F0ECEE;
 }
 
 .option:hover{
-    background-color: #7dad93;
-    color: #2b2726;
+    background-color: #5DE1FF;
+    color: #111111;
     font-weight: bold;
 }
 
 .selected{
-    background-color: #7dad93;
-    color: #2b2726;
+    background-color: #5DE1FF;
+    color: #111111;
     font-weight: bold;
 }
