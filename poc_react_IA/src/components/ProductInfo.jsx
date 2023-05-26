@@ -8,7 +8,7 @@ const ProductInfo = () => {
     const jsonProduct = JSON.parse(id)
 
     return (
-        <div className='info'>
+        <div className='device_info'>
             <a>{jsonProduct.Nome}</a>
             <a>{jsonProduct.Marca}</a>
             <a>{jsonProduct["Tamanho da Tela"]}</a>
