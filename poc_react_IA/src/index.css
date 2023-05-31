@@ -8,8 +8,10 @@ body,
 html{
     min-height: 100vh;
     height: 100%;
+    width: 100%;
     background-color: #ECEAE3;
     color: #111111;
+
 }
 
 img{

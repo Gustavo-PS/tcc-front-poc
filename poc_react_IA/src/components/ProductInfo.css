@@ -1,6 +1,33 @@
+.productContainer{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+}
+
+.modelSample{
+    height: 20vh;
+    width: 100%;
+}
+
 .device_info{
-    display: inline-table;
+    display: grid;
+    align-items: left;
+    background-color: #111111;;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    padding: 1rem;
+}
+
+.spec{
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5rem;
+    margin: 0 1rem ;
+    
+}
+
+.spec a{
+    font-size: small;
+    font-weight: bold;
+    color: #ECEAE3;
 }
