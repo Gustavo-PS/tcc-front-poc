@@ -6,6 +6,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import './AR.css'
 
+import Webcam from "react-webcam";
+
+
 extend({ OrbitControls });
 
 function Model({ gltf }) {
@@ -32,16 +35,32 @@ const AR = () => {
 
     const [setIsFrontCamera] = useState(false);
 
+    const videoConstraints = {
+        facingMode: { exact: "environment" }
+      };
+  
+
     return (
-        <div className='model'>
-            <Canvas >
-                <ambientLight />
-                <pointLight position={[10, 10, 10]} />
-                <Controls />
-                {gltf && <Model gltf={gltf} />}
-            </Canvas>
-        </div>
+        <section>
+            <div className='bg'>
+                <Webcam
+                    height={650}
+                    width={500}
+                    videoConstraints={videoConstraints}>       
+                </Webcam>
+            </div>
+            <div className='model'>
+                <Canvas >
+                    <ambientLight />
+                    <pointLight position={[10, 10, 10]} />
+                    <Controls />
+                    {gltf && <Model gltf={gltf} />}
+                </Canvas>
+            </div>
+        </section>
+
     );
+
 }
 
 export default AR

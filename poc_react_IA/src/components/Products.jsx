@@ -89,7 +89,8 @@ const Products = () => {
             redirect: 'follow'
         };
 
-        fetch("https://app-api-tcc.azurewebsites.net/api/v1/chat", requestOptions)
+        //fetch("https://app-api-tcc.azurewebsites.net/api/v1/chat", requestOptions)
+        fetch("http://localhost:6003/api/v1/chat", requestOptions)
             .then(response => response.json())
             //.then(data => setProductList(data.chatResponse))
             .then(data => setProductList(mock))
