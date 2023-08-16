@@ -32,8 +32,8 @@ const Final = () => {
       redirect: 'follow'
     };
 
-    //fetch("https://app-api-tcc.azurewebsites.net/api/v1/mapeamento-perfil", requestOptions)
-    fetch("http://localhost:6003/api/v1/mapeamento-perfil", requestOptions)
+    fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/mapeamento-perfil", requestOptions)
+    //fetch("http://localhost:6003/api/v1/mapeamento-perfil", requestOptions)
       .then(response => response.json())
       .then(data => setAnswer(data))
       .catch(error => console.log('error', error));

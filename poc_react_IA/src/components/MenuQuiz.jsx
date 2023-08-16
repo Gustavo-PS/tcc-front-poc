@@ -23,8 +23,8 @@ const MenuQuiz = () => {
       "password": "poc-tcc-api"
     });
 
-    //fetch("https://app-api-tcc.azurewebsites.net/api/v1/login", {
-      fetch("http://localhost:6003/api/v1/login", {
+    fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/login", {
+    //fetch("http://localhost:6003/api/v1/login", {
       method: 'POST',
       headers: myHeaders,
       body: raw,
