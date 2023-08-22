@@ -1,28 +1,66 @@
-import React, { useEffect, useRef } from 'react';
-import 'aframe';
-import 'ar.js';
+import React, { useState, useEffect, useRef } from 'react';
+import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 
-const ARComponent = () => {
-  const arContainer = useRef(null);
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-  useEffect(() => {
-    const container = arContainer.current;
-    const scene = document.createElement('a-scene');
-    container.appendChild(scene);
+import './AR.css'
 
-    // Adicione a câmera
-    const camera = document.createElement('a-camera');
-    camera.setAttribute('gps-camera', '');
-    scene.appendChild(camera);
+import Webcam from "react-webcam";
 
-    // Adicione um modelo 3D
-    const model = document.createElement('a-entity');
-    model.setAttribute('gltf-model', '/path/to/your/model.gltf');
-    model.setAttribute('scale', '0.1 0.1 0.1'); // Defina a escala inicial aqui
-    scene.appendChild(model);
-  }, []);
 
-  return <div ref={arContainer}></div>;
-};
+extend({ OrbitControls });
 
-export default ARComponent;
+function Model({ gltf }) {
+    return <primitive object={gltf.scene} />;
+}
+
+function Controls() {
+    const { camera, gl } = useThree();
+    const controlsRef = useRef();
+
+    useFrame(() => controlsRef.current.update());
+
+    return <orbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
+}
+
+
+const AR = () => {
+    const [gltf, setGltf] = useState(null);
+    const loader = useRef(new GLTFLoader());
+
+    useEffect(() => {
+        loader.current.load('/Phone.glb', setGltf, undefined, console.error);
+    }, []);
+
+    const [setIsFrontCamera] = useState(false);
+
+    const videoConstraints = {
+        facingMode: { exact: "environment" }
+      };
+  
+
+    return (
+        <section>
+            <div className='bg'>
+                <Webcam
+                    height={650}
+                    width={500}
+                    videoConstraints={videoConstraints}>       
+                </Webcam>
+            </div>
+            <div className='model'>
+                <Canvas >
+                    <ambientLight />
+                    <pointLight position={[10, 10, 10]} />
+                    <Controls />
+                    {gltf && <Model gltf={gltf} />}
+                </Canvas>
+            </div>
+        </section>
+
+    );
+
+}
+
+export default AR
