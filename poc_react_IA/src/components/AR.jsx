@@ -27,9 +27,9 @@ const AR = () => {
     const loader = useRef(new GLTFLoader());
 
     useEffect(() => {
-        loader.current.load('/Phone.glb', setGltf, undefined, console.error);
+        loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
         loader.current.load('/Pen.glb', setPen, undefined, console.error);
-        loader.current.load('/CreditCard.glb', setCoin, undefined, console.error);
+        loader.current.load('/Phone_1x1x1.glb', setCoin, undefined, console.error);
     }, []);
 
     const [isFrontCamera] = useState(false);
@@ -52,8 +52,8 @@ const AR = () => {
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[1, 1, 1]} position={[0, 0, 0]} />}
-                    {coin && <Model gltf={coin} scale={[0.4, 0.4, 0.4]} position={[1.2, 0.8, 0]} rotation={[3.1, Math.PI, 1.6]}/>}
+                    {gltf && <Model gltf={gltf} scale={[0.0642, 0.1315, 0.0148]} position={[0, 0, 0]} />}
+                    {coin && <Model gltf={coin} scale={[0.0781, 0.1608, 0.00765]} position={[0.1, 0, 0]} rotation={[0, 0, 0]}/>}
                 </Canvas>
             </div>
         </section>
