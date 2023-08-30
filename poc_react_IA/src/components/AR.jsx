@@ -52,7 +52,7 @@ const AR = () => {
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[0.0642, 0.1315, 0.0148]} position={[0, 0, 0]} />}
+                    {gltf && <Model gltf={gltf} scale={[0.0715, 0.1467, 0.00765]} position={[0, 0, 0]} />}
                     {coin && <Model gltf={coin} scale={[0.0781, 0.1608, 0.00765]} position={[0.1, 0, 0]} rotation={[0, 0, 0]}/>}
                 </Canvas>
             </div>
