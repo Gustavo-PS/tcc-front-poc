@@ -7,7 +7,7 @@ const initialState = {
     gameStage: STAGES[0],
     questions,
     currentQuestion: 0,
-    profile: "",
+    profile: [],
     answerSelected: false,
     token: "",
     perfil: "",
@@ -57,17 +57,20 @@ const quizReducer = (state, action) => {
             }
 
         case "CHECK_ANSWER":
-            const option = action.payload.option;
-            //console.log(option)
+            const option = "|User:" + action.payload.option;
+            const question = "$|Chatbot:" + action.payload.question;
+            console.log(question)
+            console.log(option)
+            
 
             const questionOptions = action.payload.options
             const index = questionOptions.indexOf(option) + 1
-            //console.log(index)
+            
 
             return {
                 ...state,
-                answerSelected: option,
-                profile: state.profile + index
+                answerSelected: action.payload.option,
+                profile: state.profile + question + option 
             }
 
         case "GET_PRODUCTS":
