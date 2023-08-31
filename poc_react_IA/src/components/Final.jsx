@@ -13,7 +13,6 @@ const Final = () => {
   const [answer, setAnswer] = useState([])
 
   const modifiedPrompt = prompt.replaceAll('|', '\n').replaceAll('$', '');
-  
   console.log(modifiedPrompt)
 
   function getProducts(perfil){
