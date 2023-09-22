@@ -9,9 +9,8 @@ html{
     min-height: 100vh;
     height: 100%;
     width: 100%;
-    background-color: #ECEAE3;
-    color: #111111;
-
+    background-color: #000E22;
+    color: #ffffff;
 }
 
 img{
@@ -27,18 +26,57 @@ input{
     width: 70%;
 }
 
-button{
+.btnPrimary{
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
     padding: .8rem 1.5rem;
-    background-color: #01373E;
+    background-color: #000E22;
     border-radius: .8rem;
-    border: none;
+    border: solid;
+    border-color: white;
     transition: 0.4s;
-    color: #eceae3;
+    color: white;
+    width: 80%;
 }
 
-button:hover{
-    background-color: #5DE1FF;
+.btnSecondary{
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: .8rem 1.5rem;
+    background-color: white;
+    border-radius: .8rem;
+    border: solid;
+    border-color: #ffffff;
+    transition: 0.4s;
+    color: #000E22;
+    width: 80%;
 }
+
+.btnPrimary:hover{
+    background-color: #ffffff;
+    color: #000E22;
+}
+
+.btnSecondary:hover{
+    background-color: #000E22;
+    color: white;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h4{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+

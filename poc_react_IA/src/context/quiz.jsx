@@ -45,6 +45,25 @@ const quizReducer = (state, action) => {
                 answerSelected: false
             }
 
+        case "PREVIOUS_QUESTION":
+            let previousQuestion = state.currentQuestion - 1
+
+            let startQuiz = false
+
+            if (state.currentQuestion == 0) {
+                startQuiz = true
+                previousQuestion = 0
+            }
+
+            console.log(previousQuestion)
+
+            return {
+                ...state,
+                currentQuestion: previousQuestion,
+                gameStage: startQuiz ? STAGES[0] : state.gameStage,
+                answerSelected: false
+            }
+
         case "NEW_GAME":
             return {
                 gameStage: STAGES[0],
@@ -61,16 +80,16 @@ const quizReducer = (state, action) => {
             const question = "$|Chatbot:" + action.payload.question;
             console.log(question)
             console.log(option)
-            
+
 
             const questionOptions = action.payload.options
             const index = questionOptions.indexOf(option) + 1
-            
+
 
             return {
                 ...state,
                 answerSelected: action.payload.option,
-                profile: state.profile + question + option 
+                profile: state.profile + question + option
             }
 
         case "GET_PRODUCTS":

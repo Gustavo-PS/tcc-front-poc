@@ -1,8 +1,6 @@
 .menuQuiz{
-    padding-top: 2rem;
-    width: 80%;
+    height: 100%;
+    width: 100%;
 }
 
-h1, h2{
-    margin: 1rem;
-}
+

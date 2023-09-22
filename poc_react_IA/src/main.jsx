@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom"
 
 import { QuizProvider } from './context/quiz.jsx'
 import MenuQuiz from './components/MenuQuiz.jsx'
-import Home from './components/Home.jsx'
 import Products from './components/Products.jsx'
 import ProductInfo from './components/ProductInfo.jsx'
 import AR from './components/AR.jsx'
@@ -21,7 +20,7 @@ const router = createBrowserRouter([
     children:[
       {
         path: "/",
-        element: <Home></Home>
+        element: <MenuQuiz></MenuQuiz>
       },
       {
         path: "chat",

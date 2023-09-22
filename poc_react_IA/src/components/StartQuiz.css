@@ -1,3 +1,29 @@
-.macbook_guy{
-    height: 40vh;
+.home{
+    height: 96vh;
+    width: 100%;
+    position: relative;
+    align-items: center;
 }
+
+h1{
+    margin: 1rem;
+}
+h4{
+    margin: 1rem;
+}
+
+.macbook_guy{
+    height: 50vh;
+    margin: 2rem;
+    align-self: center;
+}
+
+#btn{
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    width: 100%;
+    background-color: #000E22;
+}
+
+

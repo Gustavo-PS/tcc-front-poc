@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { QuizContext } from '../context/quiz'
+import img from '../img/back-arrow.png'
 
 import "./Questions.css"
 import Options from './Options'
@@ -9,8 +10,14 @@ import Options from './Options'
 const Questions = () => {
   const [quizState, dispatch] = useContext(QuizContext)
   const currentQuestion = quizState.questions[quizState.currentQuestion]
+  const [progress, setProgress] = useState(0);
+
+
+
 
   const onSelectOption = (option, options, question) => {
+
+    console.log(progress)
 
     const positions = [];
     function findCharacterPositions(inputString, targetChar) {
@@ -37,10 +44,21 @@ const Questions = () => {
     })
   }
 
+
+
   return (
-    <div id='question'>
-      <p id='question-index'>Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}</p>
-      <h2 id='question-text'>{currentQuestion.question}</h2>
+    <div className='quizContainer'>
+      <div id='question-container'>
+      <img id='back-arrow' src={img} onClick={() =>
+       {dispatch({ type: "PREVIOUS_QUESTION" })
+       setProgress(parseFloat((quizState.currentQuestion -1 ) / quizState.questions.length) * 100)}
+       
+    }></img>
+        <h2 id='question-text'>{currentQuestion.question}</h2>
+        <p id='question-index'>Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}</p>
+        <div id='progress-bar' style={{ width: `${progress}%` }}>
+        </div>
+      </div>
       <div id='options-container'>
         {currentQuestion.options.map((option) => (
           <Options
@@ -50,9 +68,18 @@ const Questions = () => {
           ></Options>
         ))}
       </div>
-      {quizState.answerSelected && (
-        <button onClick={() => dispatch({ type: "CHANGE_QUESTION" })}>Continuar</button>
-      )}
+      <div id='btn-container'>
+        {quizState.answerSelected ? (
+          <button className='btnPrimary' onClick={() => {
+            dispatch({ type: "CHANGE_QUESTION" })
+            setProgress(parseFloat((quizState.currentQuestion + 1) / quizState.questions.length) * 100)
+          }}>
+            Continuar
+          </button>
+        ) : (
+          <button id='btnDeactivated'>Continuar</button>
+        )}
+      </div>
     </div>
   )
 }
