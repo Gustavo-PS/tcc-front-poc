@@ -1,11 +1,11 @@
-.quizContainer{
+.quizContainer {
     height: 100vh;
     width: 100%;
     background-color: white;
     position: relative;
 }
 
-#back-arrow{
+#back-arrow {
     width: 2rem;
     height: 2rem;
     position: absolute;
@@ -13,7 +13,7 @@
     left: 2.2rem;
 }
 
-#question-container{
+#question-container {
     background-color: #E6E6E6;
     height: 30%;
     text-align: left;
@@ -29,13 +29,13 @@
     color: #3F3F3F;
     font-weight: 400;
     margin: 1rem;
-    position: absolute; 
+    position: absolute;
     bottom: 0;
     font-size: 1rem;
-  }
-  
+}
 
-#question-text{
+
+#question-text {
     color: black;
     font-weight: 500;
     margin: 1rem;
@@ -45,7 +45,7 @@
     top: 2rem;
 }
 
-#progress-bar{
+#progress-bar {
     background-color: #47CA3C;
     transition: 0.5s ease-in-out;
     height: .2rem;
@@ -54,21 +54,27 @@
     margin-left: -2rem;
 }
 
-#options-container{
-    margin-top: 5rem;
-    align-items: center;
+#options-container {
     margin-left: 2rem;
     margin-right: 2rem;
+    height: 50vh;
+    display: flex;
+    align-items: center;
 }
 
-#btn-container{
+#options{
+    width: 100vh;
+
+}
+
+#btn-container {
     position: absolute;
     bottom: 2rem;
     align-items: center;
     width: 100%;
 }
 
-#btnDeactivated{
+#btnDeactivated {
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
@@ -81,5 +87,3 @@
     color: white;
     width: 80%;
 }
-
-

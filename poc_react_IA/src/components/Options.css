@@ -2,7 +2,7 @@
     background-color: white;
     border-radius: .5rem;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     cursor: pointer;
     opacity: 0.9;
     transition: 0.4s;  
@@ -10,6 +10,7 @@
     border-color: black;
     border: solid .12rem;
     font-weight: 500;
+    min-width: 80%;
 }
 
 .option:hover{

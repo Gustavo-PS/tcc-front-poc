@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import "./Final.css";
 import img from '../img/detalhes.png'
+import backArrow from '../img/back-arrow.png'
 
 const mock = {
   "chatResponse": [
@@ -213,28 +214,34 @@ const Final = () => {
 
 
   useEffect(() => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("access-token", token);
+    if (answer === null) {
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("access-token", token);
 
-    var raw = JSON.stringify({
-      "strChat": modifiedPrompt
-    });
+    // var raw = JSON.stringify({
+    //   "strChat": modifiedPrompt
+    // });
 
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+    // var requestOptions = {
+    //   method: 'POST',
+    //   headers: myHeaders,
+    //   body: raw,
+    //   redirect: 'follow'
+    // };
 
-    fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/chat", requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        setAnswer(data);
-        //setAnswer(mock)
-      })
-      .catch(error => console.log('error', error));
+    // fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/chat", requestOptions)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     setAnswer(data);
+
+    //   })
+    //   .catch(error => console.log('error', error));
+    
+      console.log(prompt)
+      setAnswer(mock)
+    }
+
 
   }, [])
 
@@ -247,8 +254,6 @@ const Final = () => {
     dispatch({ type: "NEW_GAME" });
   }
 
-  console.log(answer)
-
   if (answer === null) {
     return (
       <Loading></Loading>
@@ -258,7 +263,10 @@ const Final = () => {
 
       <div className='quizContainer'>
         <div id='question-container'>
-          <h2 id='title-final-quiz'>Analisando suas respostas, trouxemos alguns dispositivos indicados para você</h2>
+          <img id='back-arrow' src={backArrow} onClick={() => {
+            dispatch({ type: "NEW_GAME" })
+          }}></img>
+          <h2 id='question-text'>Analisando suas respostas, trouxemos alguns dispositivos indicados para você</h2>
           <div id='progress-bar'>
           </div>
         </div>

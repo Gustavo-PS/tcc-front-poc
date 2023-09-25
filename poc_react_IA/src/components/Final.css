@@ -6,6 +6,23 @@
     color: black;
 }
 
+#back-arrow{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 2.2rem;
+}
+
+#question-text{
+    color: black;
+    font-weight: 500;
+    margin: 1rem;
+    font-size: 1.4rem;
+    position: relative;
+    font-size: 1.3rem;
+    top: 2rem;
+}
 
 .product-list {
     overflow-y: scroll;
@@ -67,7 +84,7 @@
 
 #btn-container {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     align-items: center;
     width: 100%;
     background-color: white;

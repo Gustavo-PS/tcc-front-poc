@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import './AR.css'
+import './ARComparison.css'
+import Webcam from "react-webcam";
 
 extend({ OrbitControls });
 
@@ -13,17 +14,29 @@ function Model({ gltf, scale, position, rotation }) {
 function Controls() {
     const { camera, gl } = useThree();
     const controlsRef = useRef();
+
     useFrame(() => controlsRef.current.update());
+
     return <orbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
 }
 
-const AR = () => {
+const ARComparison = () => {
     const [gltf, setGltf] = useState(null);
+    const [pen, setPen] = useState(null);
+    const [coin, setCoin] = useState(null);
     const loader = useRef(new GLTFLoader());
 
     useEffect(() => {
         loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
+        loader.current.load('/Pen.glb', setPen, undefined, console.error);
+        loader.current.load('/Phone_1x1x1.glb', setCoin, undefined, console.error);
     }, []);
+
+    const [isFrontCamera] = useState(false);
+
+    const videoConstraints = {
+        facingMode: { exact: isFrontCamera ? "user" : "environment" }
+    };
 
     return (
         <section>
@@ -32,11 +45,12 @@ const AR = () => {
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[0.715*3.5, 1.467*3.5, 0.0765*3.5]} position={[0, -2.6, 0]} />}
+                    {gltf && <Model gltf={gltf} scale={[0.715, 1.467, 0.0765]} position={[0, -0.8, 0]} />}
+                    {/* {coin && <Model gltf={coin} scale={[0.0781, 0.1608, 0.00765]} position={[0.1, 0, 0]} rotation={[0, 0, 0]}/>} */}
                 </Canvas>
             </div>
         </section>
     );
 }
 
-export default AR;
+export default ARComparison;

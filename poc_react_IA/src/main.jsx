@@ -10,7 +10,7 @@ import { QuizProvider } from './context/quiz.jsx'
 import MenuQuiz from './components/MenuQuiz.jsx'
 import Products from './components/Products.jsx'
 import ProductInfo from './components/ProductInfo.jsx'
-import AR from './components/AR.jsx'
+import ARComparison from './components/ARComparison.jsx'
 
 
 const router = createBrowserRouter([
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "ar",
-        element: <AR></AR>
+        element: <ARComparison></ARComparison>
       },
 
     ]

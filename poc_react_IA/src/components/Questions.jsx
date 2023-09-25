@@ -49,17 +49,17 @@ const Questions = () => {
   return (
     <div className='quizContainer'>
       <div id='question-container'>
-      <img id='back-arrow' src={img} onClick={() =>
-       {dispatch({ type: "PREVIOUS_QUESTION" })
-       setProgress(parseFloat((quizState.currentQuestion -1 ) / quizState.questions.length) * 100)}
-       
-    }></img>
+        <img id='back-arrow' src={img} onClick={() => {
+          dispatch({ type: "PREVIOUS_QUESTION" })
+          setProgress(parseFloat((quizState.currentQuestion - 1) / quizState.questions.length) * 100)
+        }}></img>
         <h2 id='question-text'>{currentQuestion.question}</h2>
         <p id='question-index'>Pergunta {quizState.currentQuestion + 1} de {quizState.questions.length}</p>
         <div id='progress-bar' style={{ width: `${progress}%` }}>
         </div>
       </div>
       <div id='options-container'>
+        <div id='options'>
         {currentQuestion.options.map((option) => (
           <Options
             option={option}
@@ -67,6 +67,7 @@ const Questions = () => {
             selectOption={() => onSelectOption(option, currentQuestion.options, currentQuestion.question)}
           ></Options>
         ))}
+        </div>
       </div>
       <div id='btn-container'>
         {quizState.answerSelected ? (
