@@ -1,0 +1,23 @@
+.modelComparison{
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+}
+
+.modelContainer{
+    margin-block-start: 5rem;
+    height: 60vh;
+}
+
+.objectSelection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.infoText{
+    color: black;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}

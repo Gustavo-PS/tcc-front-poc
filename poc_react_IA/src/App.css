@@ -7,13 +7,6 @@
 }
 
 .App input, button{
-  margin: 2rem;
+  margin: 1rem;
 }
 
-a{
-  font-weight: light;
-}
-
-h3{
-  font-weight: bold;
-}
