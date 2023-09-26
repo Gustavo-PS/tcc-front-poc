@@ -26,7 +26,6 @@ const AR = () => {
     }, []);
 
     return (
-        <section>
             <div className='model'>
                 <Canvas >
                     <ambientLight />
@@ -35,7 +34,6 @@ const AR = () => {
                     {gltf && <Model gltf={gltf} scale={[0.715*3.5, 1.467*3.5, 0.0765*3.5]} position={[0, -2.6, 0]} />}
                 </Canvas>
             </div>
-        </section>
     );
 }
 

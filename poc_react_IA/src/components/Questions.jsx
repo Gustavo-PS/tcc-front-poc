@@ -13,8 +13,6 @@ const Questions = () => {
   const [progress, setProgress] = useState(0);
 
 
-
-
   const onSelectOption = (option, options, question) => {
 
     console.log(progress)

@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <ProductInfo></ProductInfo>
       },
       {
-        path: "ar",
+        path: "ar/:id",
         element: <ARComparison></ARComparison>
       },
 

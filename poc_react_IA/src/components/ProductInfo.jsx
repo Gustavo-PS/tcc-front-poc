@@ -21,7 +21,7 @@ const ProductInfo = () => {
 
       <div className='model'>
         <AR></AR>
-        <Link to={'/ar'} >
+        <Link to={`/ar/${JSON.stringify(product)}`} >
           <img id='expand' src={expand}></img>
         </Link>
       </div>
