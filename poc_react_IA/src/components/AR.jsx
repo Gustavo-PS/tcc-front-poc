@@ -17,7 +17,7 @@ function Controls() {
     return <orbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
 }
 
-const AR = () => {
+const AR = ({ product }) => {
     const [gltf, setGltf] = useState(null);
     const loader = useRef(new GLTFLoader());
 
@@ -25,13 +25,17 @@ const AR = () => {
         loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
     }, []);
 
+    const height = product.dimensions.height
+    const width = product.dimensions.width
+    const thickness = product.dimensions.thickness
+
     return (
             <div className='model'>
                 <Canvas >
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[0.715*3.5, 1.467*3.5, 0.0765*3.5]} position={[0, -2.6, 0]} />}
+                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
                 </Canvas>
             </div>
     );

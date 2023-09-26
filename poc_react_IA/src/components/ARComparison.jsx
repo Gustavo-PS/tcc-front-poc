@@ -56,6 +56,9 @@ const ARComparison = () => {
         }
     }
 
+    const height = product.dimensions.height
+    const width = product.dimensions.width
+    const thickness = product.dimensions.thickness
 
     return (
         <div className='modelComparison'>
@@ -68,10 +71,10 @@ const ARComparison = () => {
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[0.715, 1.467, 0.0765]} position={[0, 0, 0]} />}
-                    {object == 'coin' && <Model gltf={coin} scale={[0.1, 0.1, 0.1]} position={[0.5, 0, 0]} rotation={[4, 0, 0]} />}
-                    {object == 'pen' && <Model gltf={pen} scale={[0.1, 0.1, 0.1]} position={[0.5, 0, 0]} rotation={[4, 0, 0]} />}
-                    {object == 'card' && <Model gltf={card} scale={[0.1, 0.1, 0.1]} position={[0.5, 0, 0]} rotation={[4, 0, 0]} />}
+                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
+                    {object == 'coin' && <Model gltf={coin} scale={[0.3, 0.3, 0.3]} position={[1.7, -2.4, 0]} rotation={[1.6, 0, 0]} />}
+                    {object == 'pen' && <Model gltf={pen} scale={[0.3, 0.3, 0.3]} position={[1.3, -0.5, 0.5]} rotation={[1, 2.5, 0]} />}
+                    {object == 'card' && <Model gltf={card} scale={[0.9, 0.9, 0.9]} position={[0.9, -2, 0.3]} rotation={[0, 0, 0]} />}
                 </Canvas>
             </div>
             <p className='infoText'>Selecione o objeto para comparar em tamanho real</p>

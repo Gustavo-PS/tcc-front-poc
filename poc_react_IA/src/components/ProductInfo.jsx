@@ -20,7 +20,7 @@ const ProductInfo = () => {
       <h2 className='phone-name'>{product.name}</h2>
 
       <div className='model'>
-        <AR></AR>
+        <AR product={product}></AR>
         <Link to={`/ar/${JSON.stringify(product)}`} >
           <img id='expand' src={expand}></img>
         </Link>
