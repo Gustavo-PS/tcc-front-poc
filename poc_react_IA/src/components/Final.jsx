@@ -210,51 +210,57 @@ const Final = () => {
   const token = quizState.token;
   const prompt = quizState.profile;
   const modifiedPrompt = prompt.replaceAll('|', '\n').replaceAll('$', '');
-  const [answer, setAnswer] = useState(null);
+  const [answer, setAnswer] = useState(quizState.devices);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
-    if (answer === null) {
-    // var myHeaders = new Headers();
-    // myHeaders.append("Content-Type", "application/json");
-    // myHeaders.append("access-token", token);
+    if (answer == null) {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("access-token", token);
 
-    // var raw = JSON.stringify({
-    //   "strChat": modifiedPrompt
-    // });
+      const raw = JSON.stringify({
+        strChat: modifiedPrompt,
+      });
 
-    // var requestOptions = {
-    //   method: 'POST',
-    //   headers: myHeaders,
-    //   body: raw,
-    //   redirect: 'follow'
-    // };
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow',
+      };
 
-    // fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/chat", requestOptions)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     setAnswer(data);
+      function doRequest() {
+        fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/chat", requestOptions)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('A resposta não está OK');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            setAnswer(data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error('Erro:', error.message);
+            // Tente novamente após um atraso
+            setTimeout(() => {
+              doRequest(); // Tente novamente
+            }, 60000); // Aguarde 1 minuto antes de tentar novamente (pode ajustar o valor)
+          });
+      }
 
-    //   })
-    //   .catch(error => console.log('error', error));
-    
-      console.log(prompt)
-      setAnswer(mock)
+      doRequest();
+
+      //setAnswer(mock)
+      console.log('salvou a lista')
     }
-
-
   }, [])
 
-  function getProducts(perfil) {
-    dispatch({
-      type: "GET_PRODUCTS",
-      payload: { perfil }
-    });
 
-    dispatch({ type: "NEW_GAME" });
-  }
-
-  if (answer === null) {
+  if (loading) {
     return (
       <Loading></Loading>
     )
@@ -273,7 +279,10 @@ const Final = () => {
         <div className="product-list">
           {answer.chatResponse.map((product, index) => (
             <Link to={`/product/info/${JSON.stringify(product)}`} >
-              <div key={index} className="product">
+              <div key={index} className="product" onClick={() => dispatch({
+                type: "SAVE_LIST",
+                payload: { answer }
+              })}>
                 <div id='product-info'>
                   <p id='product-name'>{product.name}</p>
                   <p id='product-brand'>Marca: {product.brand}</p>
