@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react';
 import ReactLoading from "react-loading";
 import backArrow from '../img/back-arrow.png'
 import Load from '../img/LoadingScreen.gif'
+import { QuizContext } from '../context/quiz';
 
 import "./Loading.css"
 
 const Loading = () => {
+    const [quizState, dispatch] = useContext(QuizContext);
+
     return (
         <div className='quizContainer'>
             <div id='question-container'>
