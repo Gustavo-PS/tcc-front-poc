@@ -11,6 +11,7 @@ const initialState = {
     answerSelected: false,
     token: "",
     perfil: "",
+    devices: null,
 }
 
 const quizReducer = (state, action) => {
@@ -73,6 +74,7 @@ const quizReducer = (state, action) => {
                 answerSelected: false,
                 token: state.token,
                 perfil: state.perfil,
+                devices: null,
             }
 
         case "CHECK_ANSWER":
@@ -99,6 +101,14 @@ const quizReducer = (state, action) => {
                 ...state,
                 perfil: perfil
             }
+        
+        case "SAVE_LIST":
+            const devices = action.payload.answer
+    
+                return {
+                    ...state,
+                    devices: devices
+                }
 
         default:
             return state

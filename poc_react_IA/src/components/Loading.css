@@ -1,3 +1,12 @@
-.loading{
-    margin-top: 40%;
+.loading {
+    position: relative;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    /* Centralize horizontalmente */
+    align-items: center;
+    /* Centralize verticalmente */
+    height: 50%;
 }

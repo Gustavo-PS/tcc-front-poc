@@ -1,14 +1,30 @@
 import React from 'react'
 import ReactLoading from "react-loading";
+import backArrow from '../img/back-arrow.png'
+import Load from '../img/LoadingScreen.gif'
 
 import "./Loading.css"
 
 const Loading = () => {
     return (
-        <div className='loading'>
-            <ReactLoading type="bubbles" color="#01373E"
-                height={150} width={100} />
+        <div className='quizContainer'>
+            <div id='question-container'>
+                <img id='back-arrow' src={backArrow} onClick={() => {
+                    dispatch({ type: "NEW_GAME" })
+                }}></img>
+                <h2 id='question-text'>Estamos analisando suas respostas para trazer os melhores resultados</h2>
+                <div id='progress-bar'>
+                </div>
+            </div>
+            <div className='loadingContainer'>
+                <div className='loading'>
+                    <img src={Load}></img>
+                    {/* <ReactLoading type="bubbles" color="#47CA3C"
+                        height={150} width={100} /> */}
+                </div>
+            </div>
         </div>
+
     )
 }
 
