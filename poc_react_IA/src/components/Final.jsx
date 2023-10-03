@@ -256,6 +256,8 @@ const Final = () => {
 
       //setAnswer(mock)
       console.log('salvou a lista')
+    }else{
+      setLoading(false)
     }
   }, [])
 
