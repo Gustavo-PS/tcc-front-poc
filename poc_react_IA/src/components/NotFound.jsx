@@ -21,6 +21,7 @@ const NotFound = () => {
         <div className='quizContainer'>
             <div id='question-container'>
                 <h2 id='question-text'>Ops, algo deu errado</h2>
+                <p id='question-text'>Se o botão recarregar não funcionar, atualize a página no navegador</p>
             </div>
             <div className="product-list">
             </div>
