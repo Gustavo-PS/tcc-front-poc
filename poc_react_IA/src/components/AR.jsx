@@ -22,7 +22,8 @@ const AR = ({ product }) => {
     const loader = useRef(new GLTFLoader());
 
     useEffect(() => {
-        loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
+        loader.current.load('/download.glb', setGltf, undefined, console.error);
+        //loader.current.load('https://tccec102023.blob.core.windows.net/glb/Phone_1x1x1.glb?sv=2022-11-02&se=2023-10-03T23%3A31%3A23Z&sr=c&sp=r&sig=wMms6nOGCAF95%2BdYJ5przs2EneKfXWFRzDz9uhxVAVc%3D', setGltf, undefined, console.error);
     }, []);
 
     const height = product.dimensions.height
@@ -42,3 +43,4 @@ const AR = ({ product }) => {
 }
 
 export default AR;
+

@@ -11,6 +11,7 @@ import MenuQuiz from './components/MenuQuiz.jsx'
 import Products from './components/Products.jsx'
 import ProductInfo from './components/ProductInfo.jsx'
 import ARComparison from './components/ARComparison.jsx'
+import NotFound from './components/NotFound.jsx'; // Import your "not found" component
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "ar/:id",
         element: <ARComparison></ARComparison>
+      },
+      {
+        path: '*', // "Not Found" route
+        element: <NotFound></NotFound>, // Replace with your "not found" component
       },
 
     ]
