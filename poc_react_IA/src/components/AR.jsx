@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { QuizContext } from '../context/quiz';
 import './AR.css'
 
 extend({ OrbitControls });
@@ -18,12 +19,16 @@ function Controls() {
 }
 
 const AR = ({ product }) => {
+    const [quizState, dispatch] = useContext(QuizContext);
     const [gltf, setGltf] = useState(null);
     const loader = useRef(new GLTFLoader());
+    const device = quizState.product._3dmodel
+    //const glb = device._3dmodel
 
     useEffect(() => {
-        loader.current.load('/download.glb', setGltf, undefined, console.error);
-        //loader.current.load('https://tccec102023.blob.core.windows.net/glb/Phone_1x1x1.glb?sv=2022-11-02&se=2023-10-03T23%3A31%3A23Z&sr=c&sp=r&sig=wMms6nOGCAF95%2BdYJ5przs2EneKfXWFRzDz9uhxVAVc%3D', setGltf, undefined, console.error);
+        //loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
+        loader.current.load(device, setGltf, undefined, console.error);
+        console.log(device)
     }, []);
 
     const height = product.dimensions.height
@@ -31,14 +36,15 @@ const AR = ({ product }) => {
     const thickness = product.dimensions.thickness
 
     return (
-            <div className='model'>
-                <Canvas >
-                    <ambientLight />
-                    <pointLight position={[10, 10, 10]} />
-                    <Controls />
-                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
-                </Canvas>
-            </div>
+        <div className='model'>
+            <Canvas >
+                <ambientLight />
+                <pointLight position={[10, 10, 10]} />
+                <Controls />
+                {gltf && <Model gltf={gltf} scale={[width * 35, height * 35, thickness * 35]} position={[0, 0, 0]} />}
+            </Canvas>
+            {/* <p>{glb}</p> */}
+        </div>
     );
 }
 
