@@ -254,8 +254,6 @@ const Final = () => {
 
       doRequest();
 
-      //setAnswer(mock)
-      console.log('salvou a lista')
     }else{
       setLoading(false)
     }
@@ -280,11 +278,11 @@ const Final = () => {
         </div>
         <div className="product-list">
           {answer.chatResponse.map((product, index) => (
-            <Link to={`/product/info/${JSON.stringify(product)}`} >
+            <Link to={`/product/info/${JSON.stringify(product).replace(product._3dmodel, null)}`} >
               <div key={index} className="product" onClick={() => dispatch({
                 type: "SAVE_LIST",
-                payload: { answer }
-              })}>
+                payload: { answer, product }
+              },)}>
                 <div id='product-info'>
                   <p id='product-name'>{product.name}</p>
                   <p id='product-brand'>Marca: {product.brand}</p>

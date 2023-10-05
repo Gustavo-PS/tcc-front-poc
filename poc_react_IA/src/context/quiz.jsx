@@ -12,6 +12,7 @@ const initialState = {
     token: "",
     perfil: "",
     devices: null,
+    product: null
 }
 
 const quizReducer = (state, action) => {
@@ -104,10 +105,12 @@ const quizReducer = (state, action) => {
         
         case "SAVE_LIST":
             const devices = action.payload.answer
+            const product = action.payload.product
     
                 return {
                     ...state,
-                    devices: devices
+                    devices: devices,
+                    product: product
                 }
 
         default:

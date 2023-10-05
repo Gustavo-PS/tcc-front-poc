@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
+import { QuizContext } from '../context/quiz';
 import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -36,13 +37,16 @@ const ARComparison = () => {
     const [card, setCard] = useState(null);
     const loader = useRef(new GLTFLoader());
     const [object, setObject] = useState(null);
+    const [quizState, dispatch] = useContext(QuizContext);
+    const device = quizState.product._3dmodel
 
     const { id } = useParams()
 
     const product = JSON.parse(id)
 
     useEffect(() => {
-        loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
+        //loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
+        loader.current.load(device, setGltf, undefined, console.error);
         loader.current.load('/pen.glb', setPen, undefined, console.error);
         loader.current.load('/coin.glb', setCoin, undefined, console.error);
         loader.current.load('/CreditCard.glb', setCard, undefined, console.error);
@@ -71,7 +75,7 @@ const ARComparison = () => {
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
                     <Controls />
-                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
+                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, 0, 0]} />}
                     {object == 'coin' && <Model gltf={coin} scale={[0.3, 0.3, 0.3]} position={[1.7, -2.4, 0]} rotation={[1.6, 0, 0]} />}
                     {object == 'pen' && <Model gltf={pen} scale={[0.3, 0.3, 0.3]} position={[1.3, -0.5, 0.5]} rotation={[1, 2.5, 0]} />}
                     {object == 'card' && <Model gltf={card} scale={[0.9, 0.9, 0.9]} position={[0.9, -2, 0.3]} rotation={[0, 0, 0]} />}
