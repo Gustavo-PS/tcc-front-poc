@@ -41,7 +41,7 @@ const AR = ({ product }) => {
                 <ambientLight />
                 <pointLight position={[10, 10, 10]} />
                 <Controls />
-                {gltf && <Model gltf={gltf} scale={[width * 35, height * 35, thickness * 35]} position={[0, 0, 0]} />}
+                {gltf && <Model gltf={gltf} scale={[width * 35, height * 35, thickness * 35]} position={[0, -2.6, 0]} />}
             </Canvas>
             {/* <p>{glb}</p> */}
         </div>
