@@ -47,7 +47,7 @@ const ARComparison = () => {
     useEffect(() => {
         //loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
         loader.current.load(device, setGltf, undefined, console.error);
-        loader.current.load('/pen.glb', setPen, undefined, console.error);
+        loader.current.load('/Pen.glb', setPen, undefined, console.error);
         loader.current.load('/coin.glb', setCoin, undefined, console.error);
         loader.current.load('/CreditCard.glb', setCard, undefined, console.error);
     }, []);
