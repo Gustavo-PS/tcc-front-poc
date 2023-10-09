@@ -4,6 +4,7 @@ import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import './ARComparison.css'
+import GlbLoading from './GlbLoading';
 import backArrow from '../img/back-arrow.png'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
@@ -64,41 +65,50 @@ const ARComparison = () => {
     const width = product.dimensions.width
     const thickness = product.dimensions.thickness
 
-    return (
-        <div className='modelComparison'>
-            <Link to={`/product/info/${JSON.stringify(product)}`}>
-                <img id='back-arrow' src={backArrow} ></img>
-            </Link>
-
-            <div className='modelContainer'>
-                <Canvas>
-                    <ambientLight />
-                    <pointLight position={[10, 10, 10]} />
-                    <Controls />
-                    {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
-                    {object == 'coin' && <Model gltf={coin} scale={[0.001, 0.001, 0.001]} position={[2.5, -1.6, -0.4]} rotation={[2.45, 0, -0.8]} />}
-                    {object == 'pen' && <Model gltf={pen} scale={[0.115, 0.115, 0.115]} position={[4.8, -2.5, 0]} rotation={[0, 0, 1.55]} />}
-                    {object == 'card' && <Model gltf={card} scale={[0.26, 0.26, 0.26]} position={[-0.8, -1.8, 0.2]} rotation={[0, 4.7, 0]} />}
-                </Canvas>
+    if(pen == null || coin == null || card == null){
+        return (
+            <GlbLoading></GlbLoading>
+          )
+    }else{
+        return (
+            <div className='modelComparison'>
+                <Link to={`/product/info/${JSON.stringify(product)}`}>
+                    <img id='back-arrow' src={backArrow} ></img>
+                </Link>
+    
+                <div className='modelContainer'>
+                    <Canvas>
+                        <ambientLight />
+                        <pointLight position={[10, 10, 10]} />
+                        <Controls />
+                        {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
+                        {object == 'coin' && <Model gltf={coin} scale={[0.001, 0.001, 0.001]} position={[2.5, -1.6, -0.4]} rotation={[2.45, 0, -0.8]} />}
+                        {object == 'pen' && <Model gltf={pen} scale={[0.115, 0.115, 0.115]} position={[4.8, -2.5, 0]} rotation={[0, 0, 1.55]} />}
+                        {object == 'card' && <Model gltf={card} scale={[0.26, 0.26, 0.26]} position={[-0.8, -1.8, 0.2]} rotation={[0, 4.7, 0]} />}
+                    </Canvas>
+                </div>
+                <p className='infoText'>Selecione o objeto para comparar em tamanho real</p>
+                <div className='objectSelection'>
+                    <div onClick={() => handleObjectSelection('card')}>
+                        {object != 'card' && <img id='object' src={cardInactive}></img>}
+                        {object == 'card' && <img id='object' src={cardActive}></img>}
+                    </div>
+                    <div onClick={() => handleObjectSelection('coin')}>
+                        {object != 'coin' && <img id='object' src={coinInactive}></img>}
+                        {object == 'coin' && <img id='object' src={coinActive}></img>}
+                    </div>
+                    <div onClick={() => handleObjectSelection('pen')}>
+                        {object != 'pen' && <img id='object' src={penInactive}></img>}
+                        {object == 'pen' && <img id='object' src={penActive}></img>}
+                    </div>
+                </div>
+    
             </div>
-            <p className='infoText'>Selecione o objeto para comparar em tamanho real</p>
-            <div className='objectSelection'>
-                <div onClick={() => handleObjectSelection('card')}>
-                    {object != 'card' && <img id='object' src={cardInactive}></img>}
-                    {object == 'card' && <img id='object' src={cardActive}></img>}
-                </div>
-                <div onClick={() => handleObjectSelection('coin')}>
-                    {object != 'coin' && <img id='object' src={coinInactive}></img>}
-                    {object == 'coin' && <img id='object' src={coinActive}></img>}
-                </div>
-                <div onClick={() => handleObjectSelection('pen')}>
-                    {object != 'pen' && <img id='object' src={penInactive}></img>}
-                    {object == 'pen' && <img id='object' src={penActive}></img>}
-                </div>
-            </div>
+        );
 
-        </div>
-    );
+    }
+
+   
 }
 
 export default ARComparison;
