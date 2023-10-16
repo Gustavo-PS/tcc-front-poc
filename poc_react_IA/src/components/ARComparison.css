@@ -5,8 +5,12 @@
 }
 
 .modelContainer{
-    margin-block-start: 5rem;
+    margin-block-start: 1rem;
     height: 60vh;
+}
+
+h2{
+    color: black;
 }
 
 .objectSelection{

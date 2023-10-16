@@ -11,12 +11,12 @@ const StartQuiz = () => {
     return (
         <div className='home'>
             <h1>Bem vindo!</h1>
-            <h4>Caso queira aprender a usar o assistente, clique em saiba mais</h4>
+            {/* <h4>Caso queira aprender a usar o assistente, clique em saiba mais</h4> */}
             <div>
                 <img className='macbook_guy' src={img}></img>
             </div>
             <div id='btn'>
-                <button className='btnSecondary'> Saiba mais </button>
+                {/* <button className='btnSecondary'> Saiba mais </button> */}
                 <button className='btnPrimary' onClick={() => dispatch({ type: "CHANGE_STATE" })}> Iniciar </button>
             </div>
         </div>
