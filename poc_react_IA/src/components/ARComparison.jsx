@@ -75,6 +75,8 @@ const ARComparison = () => {
                 <Link to={`/product/info/${JSON.stringify(product)}`}>
                     <img id='back-arrow' src={backArrow} ></img>
                 </Link>
+                
+                <h2 className='phone-name'>{product.name}</h2>
     
                 <div className='modelContainer'>
                     <Canvas>
