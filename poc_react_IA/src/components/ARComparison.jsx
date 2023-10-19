@@ -26,7 +26,11 @@ function Controls() {
     const { camera, gl } = useThree();
     const controlsRef = useRef();
 
-    useFrame(() => controlsRef.current.update());
+    useFrame(() => {
+        controlsRef.current.enablePan = false; // Desativar Pan
+        controlsRef.current.enableZoom = false; // Desativar Zoom
+        controlsRef.current.update();
+    });
 
     return <orbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
 }
@@ -49,8 +53,8 @@ const ARComparison = () => {
         //loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
         loader.current.load(device, setGltf, undefined, console.error);
         loader.current.load('/pen.glb', setPen, undefined, console.error);
-        loader.current.load('/coin.glb', setCoin, undefined, console.error);
-        loader.current.load('/CreditCard.glb', setCard, undefined, console.error);
+        loader.current.load('/coin_new.glb', setCoin, undefined, console.error);
+        loader.current.load('/CreditCard_deprecated.glb', setCard, undefined, console.error);
     }, []);
 
     function handleObjectSelection(selectedObject) {
@@ -83,10 +87,10 @@ const ARComparison = () => {
                         <ambientLight />
                         <pointLight position={[10, 10, 10]} />
                         <Controls />
-                        {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]} />}
+                        {gltf && <Model gltf={gltf} scale={[width*35, height*35, thickness*35]} position={[0, -2.6, 0]}/>}
                         {object == 'coin' && <Model gltf={coin} scale={[0.001, 0.001, 0.001]} position={[2.5, -1.6, -0.4]} rotation={[2.45, 0, -0.8]} />}
-                        {object == 'pen' && <Model gltf={pen} scale={[0.115, 0.115, 0.115]} position={[4.8, -2.5, 0]} rotation={[0, 0, 1.55]} />}
-                        {object == 'card' && <Model gltf={card} scale={[0.26, 0.26, 0.26]} position={[-0.8, -1.8, 0.2]} rotation={[0, 4.7, 0]} />}
+                        {object == 'pen' && <Model gltf={pen} scale={[0.115, 0.115, 0.115]} position={[4.8, -2.55, 0]} rotation={[0, 0, 1.55]} />}
+                        {object == 'card' && <Model gltf={card} scale={[1.0, 1.0, 1.0]} position={[2.2, -1.0, 0]} rotation={[0, 0, 1.57]} />}
                     </Canvas>
                 </div>
                 <p className='infoText'>Selecione o objeto para comparar em tamanho real</p>

@@ -14,7 +14,13 @@ function Model({ gltf, scale, position, rotation }) {
 function Controls() {
     const { camera, gl } = useThree();
     const controlsRef = useRef();
-    useFrame(() => controlsRef.current.update());
+
+    useFrame(() => {
+        controlsRef.current.enablePan = false; // Desativar Pan
+        controlsRef.current.enableZoom = false; // Desativar Zoom
+        controlsRef.current.update();
+    });
+
     return <orbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
 }
 

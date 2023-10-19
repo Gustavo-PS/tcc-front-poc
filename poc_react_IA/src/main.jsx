@@ -12,6 +12,7 @@ import Products from './components/Products.jsx'
 import ProductInfo from './components/ProductInfo.jsx'
 import ARComparison from './components/ARComparison.jsx'
 import NotFound from './components/NotFound.jsx'; // Import your "not found" component
+import SaibaMais from './components/SaibaMais.jsx'
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <MenuQuiz></MenuQuiz>
+      },
+      {
+        path: "saiba_mais",
+        element: <SaibaMais></SaibaMais>
       },
       {
         path: "chat",
