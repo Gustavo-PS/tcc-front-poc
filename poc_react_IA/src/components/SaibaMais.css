@@ -1,0 +1,23 @@
+.home{
+    height: 96vh;
+    width: 100%;
+}
+
+#description{
+    height: 12vh;
+    margin: 5rem 3rem 0rem 3rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.img_saibamais{
+    height: 60vh;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_description{
+    height: 100%;
+}
