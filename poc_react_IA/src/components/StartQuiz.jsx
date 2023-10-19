@@ -17,8 +17,8 @@ const StartQuiz = () => {
                 <img className='macbook_guy' src={img}></img>
             </div>
             <div id='btn'>
-                <Link to={'/saiba_mais'}><button className='btnSecondary'> Saiba mais </button></Link>
                 <button className='btnPrimary' onClick={() => dispatch({ type: "CHANGE_STATE" })}> Iniciar </button>
+                <Link to={'/saiba_mais'}><button className='btnSecondary'> Saiba mais </button></Link>
             </div>
         </div>
     )
