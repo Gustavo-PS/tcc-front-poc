@@ -13,13 +13,6 @@
     min-width: 80%;
 }
 
-.option:hover{
-    background-color: #47CA3C;
-    color: white;
-    font-weight: bold;
-    border: none;
-}
-
 .selected{
     background-color: #47CA3C;
     color: white;
