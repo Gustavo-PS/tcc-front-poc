@@ -57,8 +57,6 @@ const router = createBrowserRouter([
   }
 ])
 
-window.scrollTo(0,1)
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QuizProvider>
