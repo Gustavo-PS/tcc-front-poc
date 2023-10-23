@@ -53,9 +53,9 @@ const ProductInfo = () => {
         <p className='key'>Valor em Real</p> <p className='value'>R${product.value}</p>
         <p className='key'>Dimensões em Metros</p>
         <ul>
-          <li className='key'>Altura</li> <li className='value'>{product.dimensions.height} m</li>
-          <li className='key'>Largura</li> <li className='value'>{product.dimensions.width} m</li>
-          <li className='key'>Espessura</li> <li className='value'>{product.dimensions.thickness} m</li>
+          <li className='key'>Altura</li> <li className='value'>{(product.dimensions.height*100).toFixed(2)} cm</li>
+          <li className='key'>Largura</li> <li className='value'>{(product.dimensions.width*100).toFixed(2)} cm</li>
+          <li className='key'>Espessura</li> <li className='value'>{(product.dimensions.thickness*100).toFixed(2)} cm</li>
         </ul>
       </div>
     </div>
