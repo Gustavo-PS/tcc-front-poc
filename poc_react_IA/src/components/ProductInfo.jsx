@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import AR from './AR'
 import backArrow from '../img/back-arrow.png'
 import expand from '../img/expand.png'
-import comparison from '../img/comparison.png'
+import comparison from '../img/Comparison.png'
 
 const ProductInfo = () => {
   const { id } = useParams()
