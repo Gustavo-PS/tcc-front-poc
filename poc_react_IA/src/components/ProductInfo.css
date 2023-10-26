@@ -26,6 +26,12 @@
     bottom: 30vh;
 }
 
+#comparison{
+    position: absolute;
+    right: 1rem;
+    bottom: 38vh;
+}
+
 .productSpecs{
     background-color: #E6E6E6;
     border-radius: 2rem 2rem 0 0;

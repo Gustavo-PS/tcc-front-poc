@@ -1,0 +1,28 @@
+.glbCompare{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 4rem;
+}
+
+.webcamCompare{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 4rem;
+}
+
+#back-button{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+
+.phone-title{
+    position: absolute;
+    align-self: center;
+    left: 5rem;
+    top: 1.1rem
+}
