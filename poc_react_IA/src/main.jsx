@@ -13,6 +13,7 @@ import ProductInfo from './components/ProductInfo.jsx'
 import ARComparison from './components/ARComparison.jsx'
 import NotFound from './components/NotFound.jsx'; // Import your "not found" component
 import SaibaMais from './components/SaibaMais.jsx'
+import ARCam from './components/ARCam.jsx'
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "ar/:id",
         element: <ARComparison></ARComparison>
+      },
+      {
+        path: "arcam/:id",
+        element: <ARCam></ARCam>
       },
       {
         path: '*', // "Not Found" route

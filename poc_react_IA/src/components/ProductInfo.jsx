@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import AR from './AR'
 import backArrow from '../img/back-arrow.png'
 import expand from '../img/expand.png'
+import comparison from '../img/comparison.png'
 
 const ProductInfo = () => {
   const { id } = useParams()
@@ -23,6 +24,9 @@ const ProductInfo = () => {
         <AR product={product}></AR>
         <Link to={`/ar/${JSON.stringify(product)}`} >
           <img id='expand' src={expand}></img>
+        </Link>
+        <Link to={`/arcam/${JSON.stringify(product)}`} >
+          <img id='comparison' src={comparison}></img>
         </Link>
       </div>
 
