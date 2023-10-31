@@ -1,8 +1,6 @@
 .glbCompare{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 4rem;
+    margin-block-start: 4rem;
+    height: 70vh;
 }
 
 .webcamCompare{
@@ -25,4 +23,27 @@
     align-self: center;
     left: 5rem;
     top: 1.1rem
+}
+
+.coinSelection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 2rem;
+}
+
+#coin{
+    width: 4rem;
+    margin: .5rem;
+}
+
+.infoTextCoin{
+    background-color: white;
+    position: relative;
+    color: black;
+    margin: 2rem;
+    font-weight: 400;
+    border-radius: .5rem;
+    padding: .3rem;
 }

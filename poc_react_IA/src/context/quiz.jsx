@@ -19,7 +19,6 @@ const quizReducer = (state, action) => {
     switch (action.type) {
         case "SET_TOKEN":
             const token = action.payload.token
-            console.log(token)
 
             return {
                 ...state,

@@ -224,6 +224,8 @@ const Final = () => {
         strChat: modifiedPrompt,
       });
 
+      console.log(raw)
+
       const requestOptions = {
         method: 'POST',
         headers: myHeaders,

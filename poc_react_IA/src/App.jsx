@@ -21,11 +21,11 @@ function App() {
   const [token, setToken] = useState([])
 
   return (
-    // <ErrorBoundary FallbackComponent={NotFound}>
+    <ErrorBoundary FallbackComponent={NotFound}>
       <div className="App">
         <Outlet></Outlet>
       </div>
-    // </ErrorBoundary>
+    </ErrorBoundary>
   )
 }
 
