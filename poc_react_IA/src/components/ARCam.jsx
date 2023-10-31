@@ -117,8 +117,8 @@ const ARCam = () => {
                         <ambientLight />
                         <pointLight position={[10, 10, 10]} />
                         <Controls />
-                        {gltf && <Model gltf={gltf} scale={[width * 35, height * 35, thickness * 35]} position={[-0.5, -2.5, 0]} />}
-                        {coin && <Model gltf={coin} scale={[largura * 35, 0.002 * 35, largura * 35]} position={[1.4, -2, 0]} rotation={[1.6, 0, 0]} />}
+                        {gltf && <Model gltf={gltf} scale={[width * 40, height * 40, thickness * 40]} position={[-0.5, -3, 0]} />}
+                        {coin && <Model gltf={coin} scale={[largura * 40, 0.002 * 40, largura * 40]} position={[2, -2.5, 0]} rotation={[1.6, 0, 0]} />}
                     </Canvas>
                 </div>
 
