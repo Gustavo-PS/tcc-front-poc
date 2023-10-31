@@ -1,13 +1,15 @@
 .glbCompare{
     margin-block-start: 4rem;
-    height: 70vh;
+    height: 60vh;
 }
 
 .webcamCompare{
     position: absolute;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
-    top: 4rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    top: 10%;
 }
 
 #back-button{
