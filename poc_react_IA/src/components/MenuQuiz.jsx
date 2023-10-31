@@ -33,9 +33,7 @@ const MenuQuiz = () => {
       .then(response => response.json())
       .then(data => setToken(data.token))
       .catch(error => console.log('error', error));
-
-    console.log(token)
-
+      
     dispatch({
       type: "SET_TOKEN",
       payload: { token }

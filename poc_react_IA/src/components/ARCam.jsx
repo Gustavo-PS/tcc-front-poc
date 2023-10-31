@@ -10,12 +10,15 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import Webcam from 'react-webcam'
 import expand from '../img/expand.png'
-import cardInactive from '../img/comparison/card.png'
-import cardActive from '../img/comparison/cardActive.png'
-import coinInactive from '../img/comparison/coin.png'
-import coinActive from '../img/comparison/coinActive.png'
-import penInactive from '../img/comparison/pen.png'
-import penActive from '../img/comparison/penActive.png'
+import Real from '../img/coins/1RealActive.png'
+import RealActive from '../img/coins/1Real.png'
+import Cinquenta from '../img/coins/50CentavosActive.png'
+import CinquentaActive from '../img/coins/50Centavos.png'
+import VinteCinco from '../img/coins/25CentavosActive.png'
+import VinteCincoActive from '../img/coins/25Centavos.png'
+import Dez from '../img/coins/10CentavosActive.png'
+import DezActive from '../img/coins/10Centavos.png'
+
 
 extend({ OrbitControls });
 
@@ -40,9 +43,9 @@ const ARCam = () => {
     const [gltf, setGltf] = useState(null);
     const [pen, setPen] = useState(null);
     const [coin, setCoin] = useState(null);
-    const [card, setCard] = useState(null);
+    const [largura, setLargura] = useState(0.02);
     const loader = useRef(new GLTFLoader());
-    const [object, setObject] = useState(null);
+    const [object, setObject] = useState('dez');
     const [quizState, dispatch] = useContext(QuizContext);
     const device = quizState.product._3dmodel
 
@@ -53,16 +56,19 @@ const ARCam = () => {
     useEffect(() => {
         //loader.current.load('/Phone_1x1x1.glb', setGltf, undefined, console.error);
         loader.current.load(device, setGltf, undefined, console.error);
-        loader.current.load('/circle1x1x1.glb', setCoin, undefined, console.error);
+        loader.current.load('/greenCircle1x1x1.glb', setCoin, undefined, console.error);
     }, []);
 
-    function handleObjectSelection(selectedObject) {
+    function handleObjectSelection(selectedObject, raio) {
         if (selectedObject === object) {
             setObject(null)
         } else {
             setObject(selectedObject)
+            setLargura(raio)
+            console.log(largura)
         }
     }
+
 
     const height = product.dimensions.height
     const width = product.dimensions.width
@@ -96,7 +102,7 @@ const ARCam = () => {
                         ref={webcamRef}
                         screenshotFormat="image/jpeg"
                         videoConstraints={videoConstraints}
-                        style={{ height: '100%'}}
+                        style={{ height: '100%' }}
                     />
                 </div>
 
@@ -111,11 +117,31 @@ const ARCam = () => {
                         <ambientLight />
                         <pointLight position={[10, 10, 10]} />
                         <Controls />
-                        {gltf && <Model gltf={gltf} scale={[width * 30, height * 30, thickness * 30]} position={[-0.5, -1.5, 0]} />}
-                        {coin && <Model gltf={coin} scale={[0.027*30, 0.027*30, 0.002*30]} position={[1.2, -1, 0]} rotation={[-0, 0, 0]} />}
+                        {gltf && <Model gltf={gltf} scale={[width * 35, height * 35, thickness * 35]} position={[-0.5, -2.5, 0]} />}
+                        {coin && <Model gltf={coin} scale={[largura * 35, 0.002 * 35, largura * 35]} position={[1.4, -2, 0]} rotation={[1.6, 0, 0]} />}
                     </Canvas>
                 </div>
 
+                <p className='infoTextCoin'>Selecione a moeda desejada para comparar em tamanho real</p>
+                <div className='coinSelection'>
+                    <div id='coin' onClick={() => handleObjectSelection('um', 0.027)}>
+                        {object != 'um' && <img id='object' src={RealActive}></img>}
+                        {object == 'um' && <img id='object' src={Real}></img>}
+                    </div>
+                    <div id='coin' onClick={() => handleObjectSelection('cinquenta', 0.023)}>
+                        {object != 'cinquenta' && <img id='object' src={CinquentaActive}></img>}
+                        {object == 'cinquenta' && <img id='object' src={Cinquenta}></img>}
+                    </div>
+                    <div id='coin' onClick={() => handleObjectSelection('vinteCinco', 0.025)}>
+                        {object != 'vinteCinco' && <img id='object' src={VinteCincoActive}></img>}
+                        {object == 'vinteCinco' && <img id='object' src={VinteCinco}></img>}
+                    </div>
+                    <div id='coin' onClick={() => handleObjectSelection('dez', 0.020)}>
+                        {object != 'dez' && <img id='object' src={DezActive}></img>}
+                        {object == 'dez' && <img id='object' src={Dez}></img>}
+                    </div>
+                </div>
+                
             </div>
         );
 
