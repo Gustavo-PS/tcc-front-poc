@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import ReactLoading from "react-loading";
 import backArrow from '../img/back-arrow.png'
-import Load from '../img/LoadingScreen.gif'
+import Load from '../img/cube.gif'
 import { QuizContext } from '../context/quiz';
 
 import "./Loading.css"
@@ -15,7 +15,7 @@ const Loading = () => {
                 <img id='back-arrow' src={backArrow} onClick={() => {
                     dispatch({ type: "NEW_GAME" })
                 }}></img>
-                <h2 id='question-text'>Estamos analisando suas respostas para trazer os melhores resultados</h2>
+                <h2 id='question-text'>Aguarde por favor, Estamos analisando suas respostas para trazer os melhores resultados</h2>
                 <div id='progress-bar'>
                 </div>
             </div>
