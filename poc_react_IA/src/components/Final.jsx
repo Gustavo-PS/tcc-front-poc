@@ -262,7 +262,6 @@ const Final = () => {
   }, [])
 
   const trazerMaisOpcoes = () => {
-    setAnswer(null)
     setLoading(true)
     
     const myHeaders = new Headers();
