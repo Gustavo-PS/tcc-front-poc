@@ -256,10 +256,58 @@ const Final = () => {
 
       doRequest();
 
-    }else{
+    } else {
       setLoading(false)
     }
   }, [])
+
+  const trazerMaisOpcoes = () => {
+    setAnswer(null)
+    setLoading(true)
+    
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("access-token", token);
+
+    const raw = JSON.stringify({
+      strChat: modifiedPrompt,
+      arrayCelulares: [answer.chatResponse[0].name, answer.chatResponse[1].name,answer.chatResponse[2].name,answer.chatResponse[3].name,answer.chatResponse[4].name]
+    });
+
+    console.log(raw)
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
+
+    function doRequest() {
+      fetch("https://tcc-ec10-2023.azurewebsites.net/api/v1/chatDistinto", requestOptions)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('A resposta não está OK');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setAnswer(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Erro:', error.message);
+          // Tente novamente após um atraso
+          setTimeout(() => {
+            doRequest(); // Tente novamente
+          }, 60000); // Aguarde 1 minuto antes de tentar novamente (pode ajustar o valor)
+        });
+    }
+
+    doRequest();
+
+  }
+
 
 
   if (loading) {
@@ -296,6 +344,9 @@ const Final = () => {
               </div>
             </Link>
           ))}
+          <div >
+          <button className='btnPrimary' onClick={() => trazerMaisOpcoes()}>Mais opções</button>
+        </div>
         </div>
         <div id='btn-container'>
           <button className='btnPrimary' onClick={() => dispatch({ type: "NEW_GAME" })}>Refazer</button>

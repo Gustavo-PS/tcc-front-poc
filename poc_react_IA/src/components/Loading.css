@@ -10,3 +10,7 @@
     /* Centralize verticalmente */
     height: 50%;
 }
+
+.loadContainer{
+    margin-top: 10rem;
+}

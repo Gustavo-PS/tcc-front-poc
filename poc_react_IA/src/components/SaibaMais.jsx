@@ -16,7 +16,7 @@ const data = [
         "image": saibaMais1,
     },
     {
-        "description": "Com base nas respostas, nossa IA encontrará os modelos que melhorar te antenderão",
+        "description": "Com base nas respostas, nossa IA encontrará os modelos que melhor te antenderão",
         "image": saibaMais2,
     },
     {
